@@ -1,8 +1,10 @@
 import { View, Image, TouchableOpacity, Text, useWindowDimensions } from 'react-native';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
-import { StackNavigator } from './StackNavigator';
 import { StackSettings } from './StackSettings';
-import { styles } from '../theme/appTheme';
+import { styles, colors } from '../theme/appTheme';
+import { BottomTabs } from './BottomTabs';
+import { TopTabs } from './TopTabs';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,7 +21,8 @@ export const LateralMenu = () => {
       }}
       drawerContent={ (props) => <MenuContent { ...props } /> }
     >
-      <Drawer.Screen name="StackNavigator" component={ StackNavigator } />
+      <Drawer.Screen name="BottomTabs" component={ BottomTabs } />
+      <Drawer.Screen name="TopTabs" component={ TopTabs } />
       <Drawer.Screen name="StackSettings" component={ StackSettings } />
     </Drawer.Navigator>
   );
@@ -42,15 +45,25 @@ const MenuContent = ( { navigation }: DrawerContentComponentProps ) => {
       <View style={ styles.lateralMenuOptionContainer }>
           <TouchableOpacity
             style={ styles.lateralMenuOption }
-            onPress={ () => navigation.navigate('StackNavigator') }
+            onPress={ () => navigation.navigate('BottomTabs') }
           >
-            <Text style={ styles.lateralMenuOptionText }>Navegation Stack</Text>
+            <Ionicons name="compass-outline" size={23} color={colors.primary} />
+            <Text style={ styles.lateralMenuOptionText }>BottomTabs</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={ styles.lateralMenuOption }
+            onPress={ () => navigation.navigate('TopTabs') }
+          >
+            <Ionicons name="compass-outline" size={23} color={colors.primary} />
+            <Text style={ styles.lateralMenuOptionText }>TopTabs</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={ styles.lateralMenuOption }
             onPress={ () => navigation.navigate('StackSettings') }
           >
+            <Ionicons name="settings-outline" size={23} color={colors.primary} />
             <Text style={ styles.lateralMenuOptionText }>Settings Stack</Text>
           </TouchableOpacity>
       </View>

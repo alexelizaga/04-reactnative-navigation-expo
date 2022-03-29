@@ -1,8 +1,9 @@
 import { View, Text, Button, useWindowDimensions } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { styles } from "../theme/appTheme";
+import { styles, colors } from '../theme/appTheme';
 import { useEffect } from "react";
 import { DrawerScreenProps } from "@react-navigation/drawer";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 interface Props extends DrawerScreenProps<any, any> {}
 
@@ -14,7 +15,12 @@ export const Page1Screen = ({ navigation }: Props) => {
     navigation.setOptions({
       headerLeft: !isLargeScreen
         ? () => (
-            <Button title="Menu" onPress={() => navigation.toggleDrawer()} />
+            <TouchableOpacity
+              style={{ marginLeft: 10 }}
+              onPress={ () => navigation.toggleDrawer() }
+            >
+              <Ionicons name="menu-outline" size={35} color={colors.primary} />
+            </TouchableOpacity>
           )
         : () => <></>,
     });
