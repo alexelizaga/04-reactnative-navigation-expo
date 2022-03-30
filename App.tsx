@@ -2,18 +2,28 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 // import { BasicLateralMenu } from './src/navigator/BasicLateralMenu';
-// import { Tabs } from './src/navigator/Tabs';
 import { LateralMenu } from './src/navigator/LateralMenu';
+import { AuthProvider } from './src/context/AuthContext';
 
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      {/* <BasicLateralMenu /> */}
-      {/* <Tabs /> */}
-      <LateralMenu />
+      <AppState>
+        {/* <BasicLateralMenu /> */}
+        <LateralMenu />
+      </AppState>
       <StatusBar style="auto" />
     </NavigationContainer>
   );
 }
 
+export const AppState = ({ children }:any) => {
+  return (
+    <AuthProvider>
+      { children }
+    </AuthProvider>
+  )
+}
+
+export default App;

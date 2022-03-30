@@ -1,4 +1,4 @@
-import { View, Text, Button, useWindowDimensions } from "react-native";
+import { View, Text, useWindowDimensions } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { styles, colors } from '../theme/appTheme';
 import { useEffect } from "react";
@@ -22,7 +22,7 @@ export const Page1Screen = ({ navigation }: Props) => {
               <Ionicons name="menu-outline" size={35} color={colors.primary} />
             </TouchableOpacity>
           )
-        : () => <></>,
+        : () => null,
     });
   }, []);
 
