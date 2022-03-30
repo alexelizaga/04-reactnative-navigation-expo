@@ -16,11 +16,13 @@ interface Props extends DrawerScreenProps<any, any> {}
 const Tab = createMaterialTopTabNavigator();
 
 export const TopTabs = () => {
+  const { top:marginTop } = useSafeAreaInsets();
 
   return (
     <Tab.Navigator
       style={{
         backgroundColor: "white",
+        marginTop
       }}
       sceneContainerStyle={{
         backgroundColor: "white",

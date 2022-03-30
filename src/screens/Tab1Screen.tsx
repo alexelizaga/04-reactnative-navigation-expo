@@ -1,11 +1,8 @@
-import { Text, SafeAreaView } from 'react-native'
-import { styles } from '../theme/appTheme';
+import { TopTabs } from '../navigator/TopTabs';
 
 export const Tab1Screen = () => {
 
   return (
-    <SafeAreaView style={ styles.globalMargin }>
-      <Text style={ styles.globalTitle }>Tab 1</Text>
-    </SafeAreaView>
+    <TopTabs />
   )
 }

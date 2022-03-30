@@ -46,7 +46,7 @@ const MenuContent = ( { navigation }: DrawerContentComponentProps ) => {
             onPress={ () => navigation.navigate('BottomTabs') }
           >
             <Ionicons name="compass-outline" size={23} color={colors.primary} />
-            <Text style={ styles.lateralMenuOptionText }>BottomTabs</Text>
+            <Text style={ styles.lateralMenuOptionText }>Navigation</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -54,7 +54,7 @@ const MenuContent = ( { navigation }: DrawerContentComponentProps ) => {
             onPress={ () => navigation.navigate('StackSettings') }
           >
             <Ionicons name="settings-outline" size={23} color={colors.primary} />
-            <Text style={ styles.lateralMenuOptionText }>Settings Stack</Text>
+            <Text style={ styles.lateralMenuOptionText }>Settings</Text>
           </TouchableOpacity>
       </View>
 
