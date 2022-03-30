@@ -4,16 +4,10 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { useEffect } from 'react';
 import { RootStackParams } from '../navigator/StackNavigator';
 
-// interface RouteParams {
-//     id: number,
-//     name: string
-// }
-
 interface Props extends StackScreenProps<RootStackParams, 'PersonScreen'>{}
 
 export const PersonScreen = ( { route, navigation }: Props ) => {
 
-    // const params = route.params as RouteParams;
     const params = route.params
 
     useEffect( () => {
@@ -24,7 +18,7 @@ export const PersonScreen = ( { route, navigation }: Props ) => {
 
     return (
         <View style={ styles.globalMargin }>
-            <Text style={ styles.title }>
+            <Text style={ styles.globalSubtitle }>
                 {
                     JSON.stringify( params, null, 3 )
                 }

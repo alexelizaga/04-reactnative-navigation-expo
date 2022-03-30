@@ -1,64 +1,74 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { AlbumsScreen } from '../screens/AlbumsScreen';
-import { ChatScreen } from '../screens/ChatScreen';
-import { ContactsScreen } from '../screens/ContactScreen';
-import { colors } from '../theme/appTheme';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { View, TouchableOpacity } from "react-native";
+import {
+  useSafeAreaInsets,
+  SafeAreaView,
+} from "react-native-safe-area-context";
+import { AlbumsScreen } from "../screens/AlbumsScreen";
+import { ChatScreen } from "../screens/ChatScreen";
+import { ContactsScreen } from "../screens/ContactScreen";
+import { colors } from "../theme/appTheme";
+import { DrawerScreenProps } from "@react-navigation/drawer";
 
+interface Props extends DrawerScreenProps<any, any> {}
 
 const Tab = createMaterialTopTabNavigator();
 
 export const TopTabs = () => {
 
-  const { top:paddingTop } = useSafeAreaInsets();
-
   return (
     <Tab.Navigator
       style={{
-        backgroundColor: 'white',
-        paddingTop
+        backgroundColor: "white",
       }}
       sceneContainerStyle={{
-        backgroundColor: 'white'
+        backgroundColor: "white",
       }}
-      screenOptions={ ({ route })=> ({
+      screenOptions={({ route }) => ({
         tabBarActiveTintColor: colors.primary,
         tabBarPressColor: colors.primary,
         tabBarShowIcon: true,
+        tabBarShowLabel: false,
         tabBarIndicatorStyle: {
-          backgroundColor: colors.primary
+          backgroundColor: colors.primary,
         },
         tabBarStyle: {
-          shadowColor: 'transparent',
-          elevation: 0
+          shadowColor: "transparent",
+          elevation: 0,
         },
-        tabBarIconStyle: {
-        },
-        tabBarLabelStyle: {
-          fontSize: 15
-        },
-        tabBarIcon:({ color, focused }) => {
-          let iconName: any = '';
-          switch( route.name ){
-            case 'ChatScreen':
-              iconName = 'chatbubbles-outline'
+        tabBarIcon: ({ color, focused }) => {
+          let iconName: any = "";
+          switch (route.name) {
+            case "ChatScreen":
+              iconName = "chatbubbles-outline";
               break;
-            case 'ContactsScreen':
-              iconName = 'people-outline'
+            case "ContactsScreen":
+              iconName = "people-outline";
               break;
-            case 'AlbumsScreen':
-              iconName = 'images-outline'
+            case "AlbumsScreen":
+              iconName = "images-outline";
               break;
           }
-          // return <Text style={{ color }}>{ iconName }</Text>
-          return <Ionicons name={iconName} size={20} color={color} />
-        }
-      }) }
+          return <Ionicons name={iconName} size={20} color={color} />;
+        },
+      })}
     >
-      <Tab.Screen name="ChatScreen" options={{ title: 'Chat' }} component={ ChatScreen } />
-      <Tab.Screen name="ContactsScreen" options={{ title: 'Contacts' }} component={ ContactsScreen } />
-      <Tab.Screen name="AlbumsScreen" options={{ title: 'Albums' }} component={ AlbumsScreen } />
+      <Tab.Screen
+        name="ChatScreen"
+        options={{ title: "Chat" }}
+        component={ChatScreen}
+      />
+      <Tab.Screen
+        name="ContactsScreen"
+        options={{ title: "Contacts" }}
+        component={ContactsScreen}
+      />
+      <Tab.Screen
+        name="AlbumsScreen"
+        options={{ title: "Albums" }}
+        component={AlbumsScreen}
+      />
     </Tab.Navigator>
   );
-}
+};

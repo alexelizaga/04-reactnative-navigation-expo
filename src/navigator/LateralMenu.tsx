@@ -3,7 +3,6 @@ import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScroll
 import { StackSettings } from './StackSettings';
 import { styles, colors } from '../theme/appTheme';
 import { BottomTabs } from './BottomTabs';
-import { TopTabs } from './TopTabs';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
@@ -22,7 +21,6 @@ export const LateralMenu = () => {
       drawerContent={ (props) => <MenuContent { ...props } /> }
     >
       <Drawer.Screen name="BottomTabs" component={ BottomTabs } />
-      <Drawer.Screen name="TopTabs" component={ TopTabs } />
       <Drawer.Screen name="StackSettings" component={ StackSettings } />
     </Drawer.Navigator>
   );
@@ -49,14 +47,6 @@ const MenuContent = ( { navigation }: DrawerContentComponentProps ) => {
           >
             <Ionicons name="compass-outline" size={23} color={colors.primary} />
             <Text style={ styles.lateralMenuOptionText }>BottomTabs</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={ styles.lateralMenuOption }
-            onPress={ () => navigation.navigate('TopTabs') }
-          >
-            <Ionicons name="compass-outline" size={23} color={colors.primary} />
-            <Text style={ styles.lateralMenuOptionText }>TopTabs</Text>
           </TouchableOpacity>
 
           <TouchableOpacity

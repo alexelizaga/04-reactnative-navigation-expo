@@ -3,6 +3,7 @@ import { DrawerScreenProps } from "@react-navigation/drawer";
 import { useEffect } from "react";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { colors } from '../theme/appTheme';
+import { TopTabs } from '../navigator/TopTabs';
 
 interface Props extends DrawerScreenProps<any, any> {}
 
@@ -26,8 +27,6 @@ export const SettingsScreen = ({ navigation }: Props) => {
   }, []);
 
   return (
-    <View>
-      <Text>Settings Screen</Text>
-    </View>
+    <TopTabs />
   );
 };

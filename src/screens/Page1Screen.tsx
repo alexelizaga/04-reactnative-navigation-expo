@@ -27,30 +27,34 @@ export const Page1Screen = ({ navigation }: Props) => {
   }, []);
 
   return (
-    <View style={styles.globalMargin}>
-      <Text style={styles.title}>Page1Screen</Text>
-      <Button
-        title="Go to page 2"
-        onPress={() => navigation.navigate("Page2Screen")}
-      />
+    <View style={ styles.globalMargin }>
+
+      <Text style={ styles.globalSubtitle }>Navegar sin argumentos</Text>
+
+      <View style={ styles.globalSection }>
+        <TouchableOpacity
+          style={[styles.globalItem, { backgroundColor: 'red' }]}
+          onPress={ () => navigation.navigate("Page2Screen") }
+        >
+          <Text style={styles.globalItemText}>Page 2</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.globalItem, { backgroundColor: 'blue' }]}
+          onPress={ () => navigation.navigate("Page3Screen") }
+        >
+          <Text style={styles.globalItemText}>Page 3</Text>
+        </TouchableOpacity>
+      </View>
 
       <Text style={{
         marginVertical: 20,
         fontSize: 18
       }}>Navegar con argumentos</Text>
 
-      <View
-        style={{
-          flexDirection: "row",
-        }}
-      >
+      <View style={ styles.globalSection } >
         <TouchableOpacity
-          style={[
-            styles.lgBtn,
-            {
-              backgroundColor: "#5856D6",
-            },
-          ]}
+          style={[ styles.globalItem, { backgroundColor: "#5856D6" } ]}
           onPress={() =>
             navigation.navigate("PersonScreen", {
               id: 1,
@@ -58,16 +62,11 @@ export const Page1Screen = ({ navigation }: Props) => {
             })
           }
         >
-          <Text style={styles.lgBtnText}>Pedro</Text>
+          <Text style={styles.globalItemText}>Pedro</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[
-            styles.lgBtn,
-            {
-              backgroundColor: "#FF9427",
-            },
-          ]}
+          style={[ styles.globalItem, { backgroundColor: "#FF9427" } ]}
           onPress={() =>
             navigation.navigate("PersonScreen", {
               id: 2,
@@ -75,7 +74,31 @@ export const Page1Screen = ({ navigation }: Props) => {
             })
           }
         >
-          <Text style={styles.lgBtnText}>María</Text>
+          <Text style={styles.globalItemText}>María</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[ styles.globalItem, { backgroundColor: "#5856D6" } ]}
+          onPress={() =>
+            navigation.navigate("PersonScreen", {
+              id: 3,
+              name: "Juan",
+            })
+          }
+        >
+          <Text style={styles.globalItemText}>Juan</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[ styles.globalItem, { backgroundColor: "#FF9427" } ]}
+          onPress={() =>
+            navigation.navigate("PersonScreen", {
+              id: 4,
+              name: "Pepe",
+            })
+          }
+        >
+          <Text style={styles.globalItemText}>Pepe</Text>
         </TouchableOpacity>
       </View>
     </View>

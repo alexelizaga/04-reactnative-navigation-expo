@@ -9,7 +9,7 @@ export const Page2Screen = ( { navigation }:Props ) => {
 
   useEffect(() => {
     navigation.setOptions({
-      title: 'Hola mundo',
+      title: 'Page 2',
       headerBackTitle: ''
     })
   }, [])
@@ -17,10 +17,9 @@ export const Page2Screen = ( { navigation }:Props ) => {
 
   return (
     <View style={ styles.globalMargin }>
-      <Text style={ styles.title } >Page2Screen</Text>
 
       <Button
-        title='Ir página 3'
+        title='Go to page 3'
         onPress={ () => navigation.navigate('Page3Screen') }
       />
     </View>
